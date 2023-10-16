@@ -21,14 +21,14 @@ module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("ADMINISTRATOR") || !message.guild.owner) return message.channel.send('Uh oh, it seems like you do not have permission to use this command.')
 
     if(rMember.roles.cache.has(role.id)) {
-        let eeoo = new Discord.MessageEmbed().setDescription(`<:unsuccess:711232495592538124> | **${rMember.user.tag}** already has the role!`).setColor('RED')
-        return message.channel.send(eeoo)
+        let hasRole = new Discord.MessageEmbed().setDescription(`<:unsuccess:711232495592538124> | **${rMember.user.tag}** already has the role!`).setColor('RED')
+        return message.channel.send(hasRole)
     } else {
        // message.delete();
 
         await rMember.roles.add(role.id).catch(e => console.log(e.message))
-        let erer = new Discord.MessageEmbed().setDescription(`<:success:710968598386049044> **${rMember.user.tag}** | + ${role.name}`).setColor('GREEN')
-        message.channel.send(erer)
+        let green = new Discord.MessageEmbed().setDescription(`<:success:710968598386049044> **${rMember.user.tag}** | + ${role.name}`).setColor('GREEN')
+        message.channel.send(green)
     }
 
     let embed = new Discord.MessageEmbed()
